@@ -10,14 +10,14 @@ def main():
         if choice == "C":
             calculate_celsius()
         elif choice == "F":
-            fahrenheit = float(input("Fahrenheit: "))
-            celsius = 5 / 9 * (fahrenheit - 32)
-            print(f"Result: {celsius:.2f} °C")
+            calculate_fahrenheit()
         else:
             print("Invalid option")
         print(MENU)
         choice = input(">>> ").upper()
     print("Thank you.")
+
+
 
 
 def calculate_celsius():
@@ -26,5 +26,10 @@ def calculate_celsius():
     fahrenheit = celsius * 9.0 / 5 + 32
     print(f"Result: {fahrenheit:.2f} °F")
 
+def calculate_fahrenheit():
+    """Function to calculate from fahrenheit to celsius"""
+    fahrenheit = float(input("Fahrenheit: "))
+    celsius = 5 / 9 * (fahrenheit - 32)
+    print(f"Result: {celsius:.2f} °C")
 
 main()
