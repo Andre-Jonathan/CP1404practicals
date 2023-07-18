@@ -5,6 +5,7 @@ HIGH_SCORE = 90
 PASS_SCORE = 50
 MINIMUM_SCORE = 0
 
+
 def main():
     score = float(input("Enter score: "))
     score_feedback = determine_score(score)
@@ -15,6 +16,7 @@ def main():
     print(random_score)
     score_feedback = determine_score(random_score)
     print(score_feedback)
+
 
 def determine_score(score):
     """Function to determine the score message based on the score"""
@@ -27,5 +29,6 @@ def determine_score(score):
     else:
         score_message = "Bad"
     return score_message
+
 
 main()
