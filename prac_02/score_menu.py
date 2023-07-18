@@ -56,6 +56,7 @@ HIGH_SCORE = 90
 PASS_SCORE = 50
 MINIMUM_SCORE = 0
 
+
 def main():
     score = ""
     print(MENU)
@@ -99,6 +100,7 @@ def get_valid_score():
         print("Invalid score")
         score = input("Enter a score: ")
     return score
+
 
 def determine_score(score):
     """Function to determine the score message based on the score"""
