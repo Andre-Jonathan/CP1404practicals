@@ -1,6 +1,7 @@
 PASSWORD = "Pythonista"
 MINIMUM_LENGTH = 0
 
+
 def main():
     password_attempt = get_valid_password()
     while password_attempt != PASSWORD:
@@ -11,6 +12,7 @@ def main():
             password_attempt = get_valid_password()
     print("Access Granted")
 
+
 def get_valid_password():
     """Function to get valid password"""
     password_attempt = input("Enter the Password: ")
@@ -18,5 +20,6 @@ def get_valid_password():
         print("Invalid Input")
         password_attempt = input("Enter the Password: ")
     return password_attempt
+
 
 main()
