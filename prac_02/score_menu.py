@@ -1,31 +1,33 @@
 """
 import determine score function from score.py
-score = ""
-display menu
-get choice
-while choice != "Q"
-    if choice == "G"
-        get score
-        while score < 0 and score > 100
-            display invalid score
-            get score
-        get choice
-    else if choice == "P"
-        if score == ""
-            display "You have not added a score"
+function main
+    score = ""
+    display menu
+    get choice
+    while choice != "Q"
+        if choice == "G"
+            score = get valid score()
+            get choice
+        else if choice == "P"
+            score_feedback = determine score(score)
+            get choice
+        else if choice == "S"
+            if score == ""
+                display "You have not added a score"
+            else
+                stars = "*" * score
+                display stars
+            get choice
+        else
+            display invalid choice
+            get choice
 
-        else
-            score feedback = determine score(score)
-            display score feedback
-        get choice
-    else if choice == "S"
-        if score == ""
-            display "You have not added a score"
-        else
-            display
-        get choice
-    else
-        display invalid choice
-        get choice
+function get valid score()
+    get score
+    while score < 0 and score > 100
+        display invalid score
+        get score
+    return score
+
 
 """
