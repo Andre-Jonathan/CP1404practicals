@@ -93,6 +93,7 @@ def main():
 
 
 def get_valid_score():
+    """Function to get valid score"""
     score = int(input("Enter a score: "))
     while MINIMUM_SCORE > score > MAXIMUM_SCORE:
         print("Invalid score")
@@ -100,6 +101,7 @@ def get_valid_score():
     return score
 
 def determine_score(score):
+    """Function to determine the score message based on the score"""
     if score < MINIMUM_SCORE or score > MAXIMUM_SCORE:
         score_message = "Invalid Input"
     elif score >= HIGH_SCORE:
