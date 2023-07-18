@@ -17,6 +17,7 @@ def main():
     print(score_feedback)
 
 def determine_score(score):
+    """Function to determine the score message based on the score"""
     if score < MINIMUM_SCORE or score > MAXIMUM_SCORE:
         score_message = "Invalid Input"
     elif score >= HIGH_SCORE:
