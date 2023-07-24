@@ -28,3 +28,6 @@ from 2.5 to 5.5."""
 while the largest number is 5.5."""
 
 
+import random
+
+print(random.randint(1, 100))
