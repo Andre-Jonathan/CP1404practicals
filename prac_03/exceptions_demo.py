@@ -11,3 +11,15 @@ which has an undefined answer.
 keeps on asking for a numerator and denominator value.
 """
 
+while True:
+    try:
+        numerator = int(input("Enter the numerator: "))
+        denominator = int(input("Enter the denominator: "))
+        fraction = numerator / denominator
+        print(fraction)
+        False
+    except ValueError:
+        print("Numerator and denominator must be valid numbers!")
+    except ZeroDivisionError:
+        print("Cannot divide by zero!")
+print("Finished.")
