@@ -9,12 +9,6 @@ text = in_file.read().strip()
 print(text)
 in_file.close()
 
-NUMBER_FILE = "numbers.txt"
-numbers = [17, 42, 400]
-out_file = open(NUMBER_FILE, "w")
-for number in numbers:
-    print(number, file=out_file)
-out_file.close()
 
 in_file = open("numbers.txt", "r")
 number1 = int(in_file.readline())
@@ -22,3 +16,14 @@ number2 = int(in_file.readline())
 print(number1 + number2)
 in_file.close()
 
+in_file = open("numbers.txt", "r")
+total = 0
+for line in in_file:
+    number = int(line)
+    total += number
+print(total)
+in_file.close()
+out_file = open("numbers.txt", "a")
+total = str(total)
+out_file.write(total)
+out_file.close()
