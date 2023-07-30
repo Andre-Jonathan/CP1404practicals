@@ -28,8 +28,8 @@ def main():
 
 def is_valid_password(password):
     """Determine if the provided password is valid."""
-    # TODO: if length is wrong, return False
-
+    if MIN_LENGTH > len(password) > MAX_LENGTH:
+        return False
     count_lower = 0
     count_upper = 0
     count_digit = 0
