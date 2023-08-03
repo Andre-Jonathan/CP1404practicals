@@ -8,8 +8,7 @@ FILENAME = "subject_data.txt"
 
 def main():
     data = get_data()
-    info = display_subject(data)
-
+    display_subject(data)
 
 
 def get_data():
@@ -29,9 +28,11 @@ def get_data():
     input_file.close()
     return subjects
 
+
 def display_subject(subjects):
     """Display data formatted like: {subject} is taught by {lecturer} and has {number of students} students."""
     for subject in subjects:
-        print(f"{subject[0]} is taught by {subject[1]}  and has  {subject[2]} students")
+        print(f"{subject[0]} is taught by {subject[1]} and has {subject[2]} students")
+
 
 main()
