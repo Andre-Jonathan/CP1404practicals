@@ -11,10 +11,10 @@ while email != "":
     names = email.split("@")
     del names[1]
     if "." in names[FIRST_INDEX]:
-        name = names[FIRST_INDEX].replace(".", " ")
+        name = names[FIRST_INDEX].replace(".", " ").title()
     else:
-        name = names[FIRST_INDEX]
-    name_verification = input(f"Is your name {name.title()}? (Y/n)").title()
+        name = names[FIRST_INDEX].title()
+    name_verification = input(f"Is your name {name}? (Y/n)").title()
     if name_verification == "Y":
         emails[f"{name.title()}"] = email
         email = input("Email: ")
@@ -23,3 +23,4 @@ while email != "":
         emails[f"{name}"] = email
         email = input("Email: ")
 
+print("".join(f"{email} ({emails[email]})\n" for email in emails))
