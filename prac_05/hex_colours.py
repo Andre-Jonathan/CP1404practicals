@@ -13,7 +13,7 @@ COLOURS = {
 colour = input("Name a colour: ").title()
 while colour != "":
     try:
-        print(COLOURS[colour])
+        print(f"Hex code of {colour}: {COLOURS[colour]}")
         colour = input("Name a colour: ").title()
     except:
         print("Invalid colour")

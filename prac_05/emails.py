@@ -5,6 +5,8 @@ Actual:   40 minutes
 """
 FIRST_INDEX = 0
 SECOND_INDEX = 1
+
+
 def main():
     emails = {}
     email = input("Email: ")
