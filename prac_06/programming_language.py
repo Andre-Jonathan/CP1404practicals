@@ -1,3 +1,8 @@
+"""
+Programming_language
+Estimate: 20 minutes
+Actual:   28 minutes
+"""
 class ProgrammingLanguage:
     """Information about some programming language"""
     def __init__(self, name, typing, reflection, year):
