@@ -1,4 +1,5 @@
-from guitar import  Guitar
+from guitar import Guitar
+
 
 def main():
     """Demo test code to show how to use car class."""
@@ -9,5 +10,6 @@ def main():
     another_guitar = Guitar("Another Guitar", 2013, 1512.9)
     print(another_guitar.get_age())
     print(another_guitar.is_vintage())
+
 
 main()
