@@ -1,7 +1,7 @@
 """
 guitar
 Estimate: 20 minutes
-Actual:   106 minutes from 0:59 to 1:30
+Actual:   40 minutes
 """
 
 CURRENT_YEAR = 2023
