@@ -42,25 +42,46 @@ def main():
             for project in completed_projects:
                 print(project)
         elif user_pick == "F":
-            date_check = False
-            date = input("Show projects that start after date (dd/mm/yy): ")
-            while date_check:
-                try:
-                    valid_date = datetime.datetime.strptime(date, "%d/%m/%Y").date()
-                    date_check = True
-                except ValueError:
-                    print("Invalid date")
-                    date = input("Show projects that start after date (dd/mm/yy): ")
+            get_valid_date("Show projects that start after date (dd/mm/yy): ")
 
             print("Filter")
         elif user_pick == "A":
-            print("Add")
+            print("Let's add a new project")
+            new_name = get_valid_input("Name: ")
+            new_date = get_valid_date("Start date (dd/mm/yy): ")
+            new_priority = get_valid_input("Priority: ")
+            new_cost = get_valid_input("Cost estimate: $")
+            new_percent = get_valid_input("Percent complete: ")
+            new_project = Project(new_name, new_date, new_priority, new_cost, new_percent)
+            projects.append(new_project)
         elif user_pick == "U":
             print("Update")
         else:
             print("Invalid menu choice")
         print(MENU_CHOICE)
         user_pick = input(">>> ").title()
+
+
+def get_valid_date(prompt):
+    date_check = True
+    date = input(prompt)
+    while date_check:
+        try:
+            valid_date = datetime.datetime.strptime(date, "%d/%m/%Y").date()
+            formatted_date = valid_date.strftime("%d/%m/%Y")
+            date_check = False
+        except ValueError:
+            print("Invalid date")
+            date = input(prompt)
+    return formatted_date
+
+
+def get_valid_input(prompt):
+    subject = input(prompt)
+    while subject == "":
+        print("It should be filled")
+        subject = input(prompt)
+    return subject
 
 
 def extract_file(filename):
