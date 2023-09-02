@@ -1,6 +1,5 @@
 from project import Project
 import datetime
-from operator import itemgetter
 
 MENU_CHOICE = """
 (L)oad projects
@@ -17,7 +16,7 @@ DATE_INDEX = 1
 PRIORITY_INDEX = 2
 COST_INDEX = 3
 COMPLETION_INDEX = 4
-COMPLETED_PPERCENTAGE = 100
+COMPLETED_PERCENTAGE = 100
 projects = []
 
 
@@ -128,7 +127,7 @@ def sort_completion(projects):
     incomplete_projects = []
     completed_projects = []
     for project in projects:
-        if project.completion_percentage != COMPLETED_PPERCENTAGE:
+        if project.completion_percentage != COMPLETED_PERCENTAGE:
             incomplete_projects.append(project)
         else:
             completed_projects.append(project)
