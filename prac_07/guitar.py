@@ -1,9 +1,3 @@
-"""
-guitar
-Estimate: 20 minutes
-Actual:   40 minutes
-"""
-
 CURRENT_YEAR = 2023
 VINTAGE_AGE = 50
 
@@ -25,3 +19,7 @@ class Guitar:
     def is_vintage(self):
         """Checks if guitar is vintage"""
         return self.get_age() >= VINTAGE_AGE
+
+    def __lt__(self, other):
+        """Compares year with another year"""
+        return self.year < other.year
