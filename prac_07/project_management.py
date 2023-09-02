@@ -28,10 +28,10 @@ def main():
     user_pick = input(">>> ").title()
     while user_pick != "Q":
         if user_pick == "L":
-            file_name = input("Enter a filename: ")
-            extract_file(file_name)
+            extract_file(FILENAME)
             print("Load")
         elif user_pick == "S":
+            save_file(FILENAME)
             print("Save")
         elif user_pick == "D":
             incomplete_projects, completed_projects = sort_completion(projects)
@@ -63,6 +63,7 @@ def main():
 
 
 def get_valid_date(prompt):
+    """get valid date"""
     date_check = True
     date = input(prompt)
     while date_check:
@@ -77,6 +78,7 @@ def get_valid_date(prompt):
 
 
 def get_valid_input(prompt):
+    """get valid inputs"""
     subject = input(prompt)
     while subject == "":
         print("It should be filled")
@@ -85,6 +87,7 @@ def get_valid_input(prompt):
 
 
 def extract_file(filename):
+    """Extract information from the filename into the projects list"""
     with open(filename, "r", encoding="utf-8-sig") as in_file:
         in_file.readline()
         for row in in_file:
@@ -96,6 +99,16 @@ def extract_file(filename):
             completion_estimate = part[COMPLETION_INDEX]
             project = Project(name, date, priority, cost_estimate, completion_estimate)
             projects.append(project)
+
+
+def save_file(filename):
+    """Save information from the projects list into the file"""
+    with open(filename, "w", encoding="utf-8-sig") as out_file:
+        print("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage", file=out_file)
+        for project in projects:
+            project_report = [project.name, project.start_date, project.priority, project.cost_estimate,
+                         project.completion_percentage]
+            print("\t".join(str(element) for element in project_report), file=out_file)
 
 
 def sort_completion(projects):
