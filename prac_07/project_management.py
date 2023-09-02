@@ -55,7 +55,18 @@ def main():
             new_project = Project(new_name, new_date, new_priority, new_cost, new_percent)
             projects.append(new_project)
         elif user_pick == "U":
-            print("Update")
+            for i, project in enumerate(projects, 0):
+                print(i, project)
+            project_choice = int(get_valid_input("Project choice: "))
+            chosen_project = projects[project_choice]
+            print(chosen_project)
+            new_percentage = input("New Percentage: ")
+            new_priority = input("New Priority: ")
+            if new_percentage != "":
+                chosen_project.completion_percentage = new_percentage
+            if new_priority != "":
+                chosen_project.priority = new_priority
+
         else:
             print("Invalid menu choice")
         print(MENU_CHOICE)
@@ -66,6 +77,7 @@ def get_valid_date(prompt):
     """get valid date"""
     date_check = True
     date = input(prompt)
+    formatted_date = ""
     while date_check:
         try:
             valid_date = datetime.datetime.strptime(date, "%d/%m/%Y").date()
@@ -107,7 +119,7 @@ def save_file(filename):
         print("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage", file=out_file)
         for project in projects:
             project_report = [project.name, project.start_date, project.priority, project.cost_estimate,
-                         project.completion_percentage]
+                              project.completion_percentage]
             print("\t".join(str(element) for element in project_report), file=out_file)
 
 
