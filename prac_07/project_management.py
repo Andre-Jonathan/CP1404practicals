@@ -17,20 +17,20 @@ PRIORITY_INDEX = 2
 COST_INDEX = 3
 COMPLETION_INDEX = 4
 COMPLETED_PERCENTAGE = 100
-projects = []
 
 
 def main():
-    extract_file(FILENAME)
+    projects = []
+    extract_file(FILENAME, projects)
     print(projects)
     print(MENU_CHOICE)
     user_pick = input(">>> ").title()
     while user_pick != "Q":
         if user_pick == "L":
-            extract_file(FILENAME)
+            extract_file(FILENAME, projects)
             print("Load")
         elif user_pick == "S":
-            save_file(FILENAME)
+            save_file(FILENAME, projects)
             print("Save")
         elif user_pick == "D":
             incomplete_projects, completed_projects = sort_completion(projects)
@@ -97,7 +97,7 @@ def get_valid_input(prompt):
     return subject
 
 
-def extract_file(filename):
+def extract_file(filename, projects):
     """Extract information from the filename into the projects list"""
     with open(filename, "r", encoding="utf-8-sig") as in_file:
         in_file.readline()
@@ -112,7 +112,7 @@ def extract_file(filename):
             projects.append(project)
 
 
-def save_file(filename):
+def save_file(filename, projects):
     """Save information from the projects list into the file"""
     with open(filename, "w", encoding="utf-8-sig") as out_file:
         print("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage", file=out_file)
