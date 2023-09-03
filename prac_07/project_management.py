@@ -35,15 +35,16 @@ def main():
         elif user_pick == "D":
             incomplete_projects, completed_projects = sort_completion(projects)
             print("Incomplete projects: ")
-            for project in incomplete_projects:
-                print(project)
+            display_project(incomplete_projects)
             print("Complete projects: ")
-            for project in completed_projects:
-                print(project)
+            display_project(completed_projects)
         elif user_pick == "F":
-            get_valid_date("Show projects that start after date (dd/mm/yy): ")
-
-            print("Filter")
+            date = get_valid_date("Show projects that start after date (dd/mm/yy): ")
+            filter_date = [project for project in projects if project.start_date >= date]
+            sort_filter_date = sorted(filter_date, key=sort_by_start_date)
+            print("Filtered Projects")
+            for project in sort_filter_date:
+                print(project)
         elif user_pick == "A":
             print("Let's add a new project")
             new_name = get_valid_input("Name: ")
@@ -70,6 +71,17 @@ def main():
             print("Invalid menu choice")
         print(MENU_CHOICE)
         user_pick = input(">>> ").title()
+
+
+def sort_by_start_date(project):
+    """return index for each project's date"""
+    return project.start_date
+
+
+def display_project(projects):
+    """prints all the project in projects list"""
+    for project in projects:
+        print(project)
 
 
 def get_valid_date(prompt):
