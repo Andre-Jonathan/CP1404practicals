@@ -20,18 +20,16 @@ COMPLETED_PERCENTAGE = 100
 
 
 def main():
+    """Get user to load, save, display, filter, add, and update on the projects"""
     projects = []
     extract_file(FILENAME, projects)
-    print(projects)
     print(MENU_CHOICE)
     user_pick = input(">>> ").title()
     while user_pick != "Q":
         if user_pick == "L":
             extract_file(FILENAME, projects)
-            print("Load")
         elif user_pick == "S":
             save_file(FILENAME, projects)
-            print("Save")
         elif user_pick == "D":
             incomplete_projects, completed_projects = sort_completion(projects)
             print("Incomplete projects: ")
