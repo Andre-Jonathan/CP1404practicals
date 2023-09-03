@@ -1,6 +1,3 @@
-import datetime
-
-
 class Project:
     def __init__(self, name, start_date, priority=0, cost_estimate=0, completion_percentage=0):
         """Stores details of a project."""

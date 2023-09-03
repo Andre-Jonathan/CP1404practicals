@@ -1,5 +1,6 @@
 from guitar import Guitar
 import csv
+
 FILENAME = "guitars.csv"
 NAME_INDEX = 0
 YEAR_INDEX = 1
@@ -29,7 +30,6 @@ def main():
         for guitar in guitars:
             statement = [guitar.name, str(guitar.year), str(guitar.cost)]
             print(",".join(str(element) for element in statement), file=out_file)
-
 
 
 main()
