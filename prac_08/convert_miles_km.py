@@ -1,6 +1,8 @@
 from kivy.app import App
 from kivy.app import Builder
 
+MILES_TO_KM = 1.609344
+
 
 class MilesConverterApp(App):
     def build(self):
@@ -9,15 +11,17 @@ class MilesConverterApp(App):
         return self.root
 
     def handle_increment(self, change):
-        value = self.get_miles() + change
+        value = self.get_valid_miles() + change
         self.root.ids.input_label.text = str(value)
 
-    def handle_conversion(self, value):
-        value = float(self.root.ids.input_label)
-        result = value * 1.60934
+    def handle_conversion(self):
+        value = self.get_valid_miles()
+        result = value * MILES_TO_KM
         self.root.ids.output_label.text = str(result)
 
-    def get_miles(self):
+    def get_valid_miles(self):
         value = float(self.root.ids.input_label.text)
         return value
+
+
 MilesConverterApp().run()

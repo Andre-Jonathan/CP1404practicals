@@ -4,7 +4,7 @@ BoxLayout:
         orientation: 'horizontal'
         TextInput:
             id: input_label
-            text: '34'
+            text: '34.0'
             multiline: False
         BoxLayout:
             orientation: 'vertical'
@@ -18,7 +18,7 @@ BoxLayout:
 
     Button:
         text: 'Convert miles to km'
-        on_press:
+        on_press: app.handle_conversion()
     Label:
         id: output_label
         text: "54.717"
