@@ -2,6 +2,7 @@ from kivy.app import App
 from kivy.app import Builder
 
 MILES_TO_KM = 1.609344
+ERROR_VALUE = 0.0
 
 
 class MilesConverterApp(App):
@@ -20,7 +21,11 @@ class MilesConverterApp(App):
         self.root.ids.output_label.text = str(result)
 
     def get_valid_miles(self):
-        value = float(self.root.ids.input_label.text)
+
+        try:
+            value = float(self.root.ids.input_label.text)
+        except ValueError:
+            value = ERROR_VALUE
         return value
 
 
