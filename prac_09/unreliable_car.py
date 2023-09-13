@@ -7,6 +7,9 @@ class UnreliableCar(Car):
         super().__init__(name, fuel)
         self.reliability = reliability
 
+    def __str__(self):
+        return f"{super().__str__()}, reliability= {self.reliability}"
+
     def drive(self, distance):
         number = randint(0, 100)
         if number >= self.reliability:
