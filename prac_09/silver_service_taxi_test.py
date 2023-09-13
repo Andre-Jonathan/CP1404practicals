@@ -10,8 +10,8 @@ def main():
     second_car.drive(53)
     print(f"{second_car}, current price: ${second_car.get_fare()}")
 
-    third_car = SilverServiceTaxi("Honda", 532, 52)
-    third_car.drive(32)
+    third_car = SilverServiceTaxi("Honda", 532, 2)
+    third_car.drive(18)
     print(f"{third_car}, current price: ${third_car.get_fare()}")
 
 
